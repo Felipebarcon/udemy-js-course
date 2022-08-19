@@ -1,6 +1,5 @@
 'use strict';
 
-/*
 ///////////////////////////////////////
 // Activating Strict Mode
 let hasDriversLicense = false;
@@ -110,12 +109,10 @@ const yearsUntilRetirement = function (birthYeah, firstName) {
 
 console.log(yearsUntilRetirement(1991, 'Jonas'));
 console.log(yearsUntilRetirement(1950, 'Mike'));
-*/
 
 ///////////////////////////////////////
 // Coding Challenge #1
 
-/*
 Back to the two gymnastics teams, the Dolphins and the Koalas! There is a new gymnastics discipline, which works differently.
 Each team competes 3 times, and then the average of the 3 scores is calculated (so one average score per team).
 A team ONLY wins if it has at least DOUBLE the average score of the other team. Otherwise, no team wins!
@@ -133,9 +130,7 @@ HINT: To calculate average of 3 values, add them all together and divide by 3
 HINT: To check if number A is at least double number B, check for A >= 2 * B. Apply this to the team's average scores 😉
 
 GOOD LUCK 😀
-*/
 
-/*
 const calcAverage = (a, b, c) => (a + b + c) / 3;
 console.log(calcAverage(3, 4, 5));
 
@@ -237,12 +232,10 @@ console.log(friends.includes(23));
 if (friends.includes('Steven')) {
   console.log('You have a friend called Steven');
 }
-*/
 
 ///////////////////////////////////////
 // Coding Challenge #2
 
-/*
 Steven is still building his tip calculator, using the same rules as before: Tip 15% of the bill if the bill value is between 50 and 300, and if the value is different, the tip is 20%.
 
 1. Write a function 'calcTip' that takes any bill value as an input and returns the corresponding tip, calculated based on the rules above (you can check out the code from first tip calculator challenge if you need to). Use the function type you like the most. Test the function using a bill value of 100.
@@ -255,9 +248,7 @@ TEST DATA: 125, 555 and 44
 HINT: Remember that an array needs a value in each position, and that value can actually be the returned value of a function! So you can just call a function as array values (so don't store the tip values in separate variables first, but right in the new array) 😉
 
 GOOD LUCK 😀
-*/
 
-/*
 const calcTip = function (bill) {
   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 }
@@ -365,12 +356,10 @@ console.log(jonas.age);
 // Challenge
 // "Jonas is a 46-year old teacher, and he has a driver's license"
 console.log(jonas.getSummary());
-*/
 
 ///////////////////////////////////////
 // Coding Challenge #3
 
-/*
 Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations! Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
 
 1. For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith)
@@ -380,9 +369,7 @@ Let's go back to Mark and John comparing their BMIs! This time, let's use object
 TEST DATA: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
 
 GOOD LUCK 😀
-*/
 
-/*
 const mark = {
   fullName: 'Mark Miller',
   mass: 78,
@@ -536,12 +523,10 @@ while (dice !== 6) {
   dice = Math.trunc(Math.random() * 6) + 1;
   if (dice === 6) console.log('Loop is about to end...');
 }
-*/
 
 ///////////////////////////////////////
 // Coding Challenge #4
 
-/*
 Let's improve Steven's tip calculator even more, this time using loops!
 
 1. Create an array 'bills' containing all 10 test bill values
@@ -558,9 +543,7 @@ HINT: Call calcTip in the loop and use the push method to add values to the tips
   4.3. Call the function with the 'totals' array
 
 GOOD LUCK 😀
-*/
 
-/*
 const calcTip = function (bill) {
   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 }
@@ -586,4 +569,3 @@ const calcAverage = function (arr) {
 console.log(calcAverage([2, 3, 7]));
 console.log(calcAverage(totals));
 console.log(calcAverage(tips));
-*/
