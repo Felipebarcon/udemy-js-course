@@ -161,4 +161,61 @@ var addArrow2 = (a, b) => {
   return a + b;
 };
 
-addArrow2(2, 5, 8, 12); // On arrow function extra arguments don't exist and throw an error
+// addArrow2(2, 5, 8, 12);  On arrow function extra arguments don't exist and throw an error
+
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+const me2 = {
+  name: 'Felipe',
+  age: 30,
+};
+
+// Primitive vs References types
+
+const friend = me2;
+friend.age = 27;
+
+console.log('Friend:', friend);
+console.log('Me:', me2);
+
+// Primitives Types
+let lastName = 'Barcon';
+let oldLastName = lastName;
+lastName = 'Mourot';
+console.log(lastName, oldLastName); // lastName = Mourot oldLastName = Barcon
+
+// Reference Types
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage:', jessica);
+console.log('Before marriage:', marriedJessica);
+
+// Copying objects
+
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2); // Copying jessica2 to jessicaCopy
+jessicaCopy.lastName = 'Davis';
+
+console.log('jessica2 Before marriage:', jessica2);
+console.log('jessicaCopy Before marriage:', jessicaCopy);
+
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log('jessica2 Before marriage:', jessica2); // family array has been copied from jessicaCopy
+console.log('jessicaCopy Before marriage:', jessicaCopy);
