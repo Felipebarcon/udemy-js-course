@@ -103,14 +103,33 @@ const calcMultiplyArrow = (num1, num2) => {
 };
 calcMultiplyArrow(5, 6);
 
+//Felipe Object and THIS KEYWORD
+
 const felipe = {
+  firstName: 'Felipe',
   year: 1983,
   calcAge: function () {
     console.log(this); // Felipe Object
-    console.log(new Date().getFullYear() - this.year);
+    // console.log(new Date().getFullYear() - this.year); error year undefined
+
+    /*    Solution 1
+        const self = this;
+        const isMillennial = function () {
+          console.log(self.year >= 1981 && self.year <= 1996);
+        };*/
+
+    // Solution 2 as arrow functions don't have they own this keyword they user their parents this keyword
+    const isMillennial = () => {
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillennial();
   },
+
+  greet: () => console.log(`Hey ${this.firstName}`),
 };
-felipe.calcAge();
+
+felipe.calcAge(); // this keyword undefined if we don't define a self variable = this with self == true
 
 const theo = {
   year: 2017,
@@ -119,5 +138,27 @@ const theo = {
 theo.calcAge = felipe.calcAge; // method borrowing
 theo.calcAge(); // 5
 
-const f = felipe.calcAge;
-f(); // error year === undefined
+/*const f = felipe.calcAge;
+f(); error year === undefined*/
+
+felipe.greet(); // Hey undefined ==> arrow functions does not have they this keyword use the this keyword from the global scope "window object"
+console.log(this.firstName); // undefined
+
+var firstName2 = 'Jonas'; // create firstName2 on window.firstName2
+console.log(this.firstName2); // Jonas
+
+// Arguments keyword
+const addExpr2 = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+
+addExpr2(2, 5);
+addExpr2(2, 5, 8, 12); // extra arguments exists
+
+var addArrow2 = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+
+addArrow2(2, 5, 8, 12); // On arrow function extra arguments don't exist and throw an error
