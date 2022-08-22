@@ -66,11 +66,11 @@ console.log(...goodArr); // 1 2 7 8 9
 const newMenu = [...restaurant.mainMenu, 'Gnocci'];
 console.log(newMenu);
 
-// Copy Array
+// Copy Array -----------------------------------------------
 
 const mainMenuCopy = [...restaurant.mainMenu];
 
-// Join 2 arrays
+// Join 2 arrays -----------------------------------------------
 
 const menuAll = [...restaurant.starterMenu, ...restaurant.mainMenu];
 console.log(menuAll);
@@ -81,7 +81,7 @@ const string = 'Felipe';
 const letters = [...string, '', 'S.'];
 console.log(letters);
 
-// Real world example
+// Real world example -----------------------------------------------
 const ingredients = [
   prompt("Let's make pasta! Ingredient 1?"),
   prompt("Let's make pasta! Ingredient 2?"),
@@ -92,7 +92,8 @@ console.log(ingredients);
 restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
 restaurant.orderPasta(...ingredients);
 
-// Objects
+// Objects -----------------------------------------------
+
 const newRestaurant = { ...restaurant, founder: 'Giuseppe', foundedIn: 1998 };
 console.log(newRestaurant);
 
@@ -118,7 +119,7 @@ restaurant.orderDelivery({
   address: 'Main Street New York',
 });
 
-// Destructuring Objects
+// Destructuring Objects -----------------------------------------------
 
 const { name, openingHours, categories } = restaurant;
 console.log(name, openingHours, categories);
@@ -131,11 +132,11 @@ const {
 
 console.log(restaurantName, hours, tags);
 
-// Default values
+// Default values -----------------------------------------------
 const { menu = [], starterMenu: starters = [] } = restaurant;
 console.log(menu, starters);
 
-// Mutating variables
+// Mutating variables -----------------------------------------------
 
 let int1 = 111;
 let int2 = 999;
@@ -144,7 +145,7 @@ const obj = { int1: 23, int2: 7, int3: 14 };
 ({ int1, int2 } = obj);
 console.log(int1, int2);
 
-// Nested Objects
+// Nested Objects -----------------------------------------------
 const {
   fri: { open: op, close: cl },
 } = openingHours;
@@ -158,7 +159,7 @@ const b = arr[1];
 const c = arr[2];
 const d = arr[3];
 
-// Destructuring array
+// Destructuring array -----------------------------------------------
 const [w, x, y, z] = arr;
 console.log(w, x, y, z);
 
@@ -185,13 +186,13 @@ console.log(main, secondary);
 const [starter, mainCourse] = restaurant.order(2, 0);
 console.log(starter, mainCourse);
 
-// Nested destructuring
+// Nested destructuring -----------------------------------------------
 const nested = [2, 4, [5, 6]];
 /*const [i, , j] = nested;
 console.log(i, j);*/
 const [i, , [j, k]] = nested;
 console.log(i, j, k);
 
-// Default values
+// Default values -----------------------------------------------
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
