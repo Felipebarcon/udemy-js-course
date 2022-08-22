@@ -43,6 +43,12 @@ const restaurant = {
   },
 };
 
+/*
+///////////////////////////////////////////////////////////
+Destructuring Objects
+////////////////////////////////////////////////////////
+*/
+
 restaurant.orderDelivery({
   time: '22:30',
   address: 'Main Street New York',
