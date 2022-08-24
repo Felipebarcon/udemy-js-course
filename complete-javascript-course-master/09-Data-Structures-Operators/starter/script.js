@@ -54,6 +54,43 @@ const restaurant = {
   },
 };
 
+// && and || operators
+// Use ANY data type, return ANY data type, short-circuiting ==> if the first operand is true the second will not be evaluated
+console.log('------------ OR -------------');
+console.log(3 || 'Felipe'); // 3
+console.log('' || 'Jonas'); // 'Jonas'
+console.log(true || 0); // true
+console.log(undefined || null); // null
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+restaurant.numGuests = 0;
+
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+// Nullish Coalescing Operator ==> nullish values are null and undefined (NOT 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect); // 0 REAL VALUE
+
+console.log('------------ AND -------------');
+
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+
+console.log('Hello' && 23 && null && undefined);
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushroom', 'cheese');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('Chorizo', 'Parmesan');
+
+console.log('-------------- NEXT --------------');
+
 /*
 ///////////////////////////////////////////////////////////
 The Spread Operator (...)
@@ -67,17 +104,17 @@ const arr3 = [1, 2, ...[3, 4]];
 
 // REST, because on LEFT side of =
 const [firstI, secondI, ...others] = [1, 2, 3, 4, 5];
-console.log(firstI, secondI, others);
+// console.log(firstI, secondI, others);
 
 const [pizza, , risotto, ...otherFood] = [
   ...restaurant.mainMenu,
   ...restaurant.starterMenu,
 ];
-console.log(pizza, risotto, otherFood);
+// console.log(pizza, risotto, otherFood);
 
 // Objects
 const { sat, ...weekdays } = restaurant.openingHours;
-console.log(weekdays);
+// console.log(weekdays);
 
 // 2) Functions
 
@@ -86,7 +123,7 @@ const add = function (...numbers) {
   for (let i = 0; i < numbers.length; i++) {
     sum += numbers[i];
   }
-  console.log(sum);
+  // console.log(sum);
 };
 
 add(2, 3);
