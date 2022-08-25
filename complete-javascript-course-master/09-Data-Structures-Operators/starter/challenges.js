@@ -84,11 +84,20 @@ const [goalKeeper, ...fieldPlayersBorussia] = playersBorrusia;
 console.log(goalKeeper);
 console.log(fieldPlayersBorussia);
 
-const playersGoals = function (...players) {
-  console.log(`${game.scored.length} goals were scored by ${players}`);
+// create a function to print the goals of each player passed into the function if this player have scored and how many goals he has scored and return no goal if not
+const printGoals2 = function (...playersNames) {
+  for (let i = 0; i < playersNames.length; i++) {
+    const player = playersNames[i];
+    const goals = game.scored.filter(score => score === player).length;
+    if (goals > 0) {
+      console.log(`${player} scored ${goals} goals`);
+    } else {
+      console.log(`${player} scored no goal`);
+    }
+  }
 };
 
-playersGoals('Lewandowski', 'Gnarby');
+printGoals2(...game.scored);
 
 console.log('------------------ CHALLENGE ------------------');
 // 1)
