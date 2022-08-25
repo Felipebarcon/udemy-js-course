@@ -84,18 +84,30 @@ const [goalKeeper, ...fieldPlayersBorussia] = playersBorrusia;
 console.log(goalKeeper);
 console.log(fieldPlayersBorussia);
 
-// create a function to print the goals of each player passed into the function if this player have scored and how many goals he has scored and return no goal if not
-const printGoals2 = function (...playersNames) {
-  for (let i = 0; i < playersNames.length; i++) {
-    const player = playersNames[i];
-    const goals = game.scored.filter(score => score === player).length;
-    if (goals > 0) {
-      console.log(`${player} scored ${goals} goals`);
+console.log('------------------ printGoals2 ------------------');
+// count the number of goals scored by each player
+const goals = {};
+for (const player of game.scored) {
+  goals[player] = goals[player] + 1 || 1;
+}
+
+const printGoals2 = function (...players) {
+  const goals = {};
+  for (const player of game.scored) {
+    goals[player] = goals[player] + 1 || 1;
+  }
+  for (let i = 0; i < players.length; i++) {
+    const player = players[i];
+    if (game.scored.includes(player)) {
+      console.log(`${player} have scored goals ${goals[player]}`);
     } else {
-      console.log(`${player} scored no goal`);
+      console.log(`${player} have no goals`);
     }
   }
 };
+// create a variable who store each player
+// compare each player to the arrays scored
+// if players name true calculate number of goals
 
 printGoals2(...game.scored);
 
