@@ -56,6 +56,25 @@ const restaurant = {
 
 /*
 ///////////////////////////////////////////////////////////
+For Of Loop
+////////////////////////////////////////////////////////
+*/
+
+console.log('------------ For Of Loop -------------');
+
+const allMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of allMenu) console.log(item);
+
+// With Index
+for (const [i, el] of allMenu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+// console.log([...allMenu.entries()]);
+
+/*
+///////////////////////////////////////////////////////////
 Local Assignment Operators
 ////////////////////////////////////////////////////////
 */
