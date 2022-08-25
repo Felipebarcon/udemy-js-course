@@ -75,6 +75,22 @@ const game = {
   },
 };
 
+console.log('------------------ TEST ------------------');
+
+const playersBorrusia = game.players[1];
+console.log(playersBorrusia);
+
+const [goalKeeper, ...fieldPlayersBorussia] = playersBorrusia;
+console.log(goalKeeper);
+console.log(fieldPlayersBorussia);
+
+const playersGoals = function (...players) {
+  console.log(`${game.scored.length} goals were scored by ${players}`);
+};
+
+playersGoals('Lewandowski', 'Gnarby');
+
+console.log('------------------ CHALLENGE ------------------');
 // 1)
 /*Solution with destructuring
 const [players1, players2] = game.players;*/
