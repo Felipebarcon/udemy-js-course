@@ -56,6 +56,64 @@ const restaurant = {
 
 /*
 ///////////////////////////////////////////////////////////
+SETS
+////////////////////////////////////////////////////////
+*/
+console.log('------------ SETS -------------');
+
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+
+console.log(ordersSet);
+
+console.log(new Set('Jonas'));
+
+console.log(ordersSet.size);
+
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+// ordersSet.clear(); // Delete all entries
+
+console.log(ordersSet);
+
+for (const order of ordersSet) console.log(order);
+
+// Example
+
+const staff = [
+  'Waiter',
+  'Chef',
+  'Waiter',
+  'Manager',
+  'Manager',
+  'Chef',
+  'Waiter',
+];
+
+// Destructuring set to convert into an array
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+// Know how many unique values are in the array
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Manager', 'Chef', 'Waiter'])
+    .size
+);
+
+console.log(new Set('FelipeBarcon').size);
+
+/*
+///////////////////////////////////////////////////////////
 Looping Objects, Objects Keys, Values and Entries
 ////////////////////////////////////////////////////////
 */

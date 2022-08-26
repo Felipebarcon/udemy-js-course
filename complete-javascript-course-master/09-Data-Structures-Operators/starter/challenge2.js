@@ -117,3 +117,7 @@ for (const player of game.scored) {
   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
 console.log(scorers);
+
+<!-- HTML !-->
+<button class="button-1" role="button">Button 1</button>
+
