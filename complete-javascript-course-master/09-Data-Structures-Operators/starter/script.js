@@ -54,6 +54,51 @@ const restaurant = {
   },
 };
 
+const airLine = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log('B737'[0]);
+console.log(airLine.length);
+console.log('B737'.length);
+
+console.log(airLine.indexOf('r'));
+console.log(airLine.lastIndexOf('r'));
+console.log(airLine.indexOf('Portugal'));
+
+console.log(airLine.slice(4));
+console.log(airLine.slice(4, 7)); // 7 - 4 = 3 ==> length of the substring
+
+console.log(airLine.slice(0, airLine.indexOf(' ')));
+console.log(airLine.slice(airLine.lastIndexOf(' ') + 1));
+
+console.log(airLine.slice(-2)); // start counting from the end
+console.log(airLine.slice(1, -1)); // start counting from the end
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') {
+    console.log('You got the middle seat 😭');
+  } else {
+    console.log('You got lucky 🍾');
+  }
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('felipe')); // What JS does behind the scene to apply methods on primitive values like strings
+console.log(typeof new String('felipe'));
+
+/*
+///////////////////////////////////////////////////////////
+STRINGS PART 1
+////////////////////////////////////////////////////////
+*/
+console.log('------------ STRINGS PART 1 -------------');
+
 /*
 ///////////////////////////////////////////////////////////
 MAPS ITERATION
