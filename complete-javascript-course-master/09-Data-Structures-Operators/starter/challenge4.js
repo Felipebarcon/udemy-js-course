@@ -47,7 +47,7 @@ document.querySelector('button').addEventListener('click', function () {
   }
 });
 
-/*const camelCaseText = function (string) {
+const camelCaseText = function (string) {
   const strLowerCase = string.toLowerCase().trim();
   // Split each word on an array
   const input = strLowerCase.split('\n');
@@ -62,4 +62,4 @@ document.querySelector('button').addEventListener('click', function () {
     camelWord.push(separateWord[0] + fixedWord);
   }
   console.log(...camelWord);
-};*/
+};
