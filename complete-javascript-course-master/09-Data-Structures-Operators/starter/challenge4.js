@@ -35,31 +35,22 @@ document.body.append(document.createElement('button'));
 
 document.querySelector('button').addEventListener('click', function () {
   const text = document.querySelector('textarea').value;
-  const rows = text.split('\n');
+  camelCaseText(text);
+});
 
-  for (const [i, row] of rows.entries()) {
-    const [first, second] = row.toLowerCase().trim().split('_');
+const camelCaseText = function (string) {
+  // split the words
+  const words = string.split('\n');
+  // getting the index of the object with entries
+  for (const [i, word] of words.entries()) {
+    // split the word in two parts, lowerCase, deleting whitespace
+    const [first, second] = word.toLowerCase().trim().split('_');
+    // replacing the first character of the second word to UpperCase and creating the output
     const output = `${first}${second.replace(
       second[0],
       second[0].toUpperCase()
     )}`;
-    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+    // adding padding to the sentence and repeat the check mark with index to increase
+    console.log(`${output.padEnd(25)}${'✅'.repeat(i + 1)}`);
   }
-});
-
-const camelCaseText = function (string) {
-  const strLowerCase = string.toLowerCase().trim();
-  // Split each word on an array
-  const input = strLowerCase.split('\n');
-  const camelWord = [];
-  for (const word of input) {
-    const separateWord = word.split('_');
-    const wordToReplace = separateWord[1];
-    const fixedWord = wordToReplace.replace(
-      wordToReplace[0],
-      wordToReplace[0].toUpperCase()
-    );
-    camelWord.push(separateWord[0] + fixedWord);
-  }
-  console.log(...camelWord);
 };
