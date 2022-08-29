@@ -10,9 +10,38 @@ const flights =
 //   🔴 Delayed Arrival from HEL to FAO (12h05)
 //            Departure from FAO to LIS (12h30)
 
-for (const flight of flights.split('+')) {
-  console.log(flight);
-}
+const creatingAnnounce = function (string) {
+  for (const flight of flights.split('+')) {
+    const [type, departure, destination, time] = flight.trim().split(';');
+    if (type.startsWith('_Delayed')) {
+      const announceDelayed = `${'🔴'} ${type
+        .slice(1, type.length)
+        .split('_')
+        .join(' ')} ${departure.toUpperCase().slice(0, 3)} to ${destination
+        .toUpperCase()
+        .slice(0, 3)} (${time})`;
+      console.log(announceDelayed.padStart(39));
+    } else {
+      const announceOnTime = `${type
+        .slice(1, type.length)
+        .split('_')
+        .join(' ')} ${departure.toUpperCase().slice(0, 3)} to ${destination
+        .toUpperCase()
+        .slice(0, 3)} (${time})`;
+      console.log(announceOnTime.padStart(39));
+    }
+  }
+};
+/*    const announce = `${type
+      .slice(1, type.length)
+      .split('_')
+      .join(' ')} ${departure.toUpperCase().slice(0, 3)} to ${destination
+      .toUpperCase()
+      .slice(0, 3)} (${time})`;
+  }
+};*/
+
+creatingAnnounce(flights);
 
 const weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
