@@ -32,14 +32,6 @@ const creatingAnnounce = function (string) {
     }
   }
 };
-/*    const announce = `${type
-      .slice(1, type.length)
-      .split('_')
-      .join(' ')} ${departure.toUpperCase().slice(0, 3)} to ${destination
-      .toUpperCase()
-      .slice(0, 3)} (${time})`;
-  }
-};*/
 
 creatingAnnounce(flights);
 
