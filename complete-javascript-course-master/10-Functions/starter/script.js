@@ -3,6 +3,7 @@
 // DEFAULT PARAMETERS
 
 console.log('---------Default Parameters---------');
+// DEFAULT PARAMETERS
 
 const bookings = [];
 
@@ -32,6 +33,34 @@ createBooking('LH567', 5);
 
 createBooking('LH789', undefined, 1000);
 
-// DEFAULT PARAMETERS
+console.log('---------Value vs Reference---------');
 
-console.log('---------Default Parameters---------');
+const flight = 'LH234';
+const felipe = {
+  name: 'Felipe Barcon',
+  passport: 245558455,
+};
+
+const checkIn = function (flightNum, passenger) {
+  flightNum = 'LH9999';
+  passenger.name = 'Mr. ' + passenger.name;
+
+  if (passenger.passport === 245558455) {
+    //alert('Check in');
+  } else {
+    //alert('Wrong passport!');
+  }
+};
+
+checkIn(flight, felipe);
+console.log(flight); // primitive ==> flightNum contains a copy of flight so flight is not changed
+console.log(felipe); // passenger is copying the reference in memory so the changes happened in the original object
+
+const newPassport = function (person) {
+  person.passport = Math.trunc(Math.random() * 100000000000);
+};
+
+newPassport(felipe);
+checkIn(flight, felipe); // the passport is not the same so Wrong Passport
+
+// In JavaScript we never pass  by references only by values
