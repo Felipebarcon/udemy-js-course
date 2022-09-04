@@ -28,9 +28,9 @@ for (const flight of flights.split('+')) {
 
 console.log('------------ FLIGHT EXERCISE -------------');
 
-/*const creatingAnnounce = function (string) {
+const creatingAnnounce = function (string) {
   for (const flight of flights.split('+')) {
-    const [type, departure, destination, time] = flight.trim().split(';');
+    const [type, departure, destination, time] = flight.split(';');
     if (type.startsWith('_Delayed')) {
       const announceDelayed = `${'🔴'} ${type
         .slice(1, type.length)
@@ -51,7 +51,33 @@ console.log('------------ FLIGHT EXERCISE -------------');
   }
 };
 
-creatingAnnounce(flights);*/
+creatingAnnounce(flights);
+
+console.log('------------ FLIGHT EXERCISE CATALINE -------------');
+
+function displayFlights(text) {
+  const cityArray = [...text.matchAll(/([a-z]{3})\d+/g)];
+  cityArray.forEach(
+    city => (text = text.replace(city[0], city[1].toUpperCase()))
+  );
+
+  const timeArray = [...text.matchAll(/\d{2}:\d{2}/g)];
+  timeArray.forEach(time => (text = text.replace(time[0], `(${time[0]})`)));
+
+  return text
+    .split('+')
+    .map(s => {
+      return s.startsWith('_Delayed') ? `\uD83D\uDD34${s}` : `          ${s}`;
+    })
+    .map(s => s.replace(';', ' from '))
+    .map(s => s.replace(';', ' to '))
+    .map(s => s.replace(';', ' '))
+    .map(s => s.replace(':', 'h'))
+    .map(s => s.replaceAll('_', ' '))
+    .join('\n');
+}
+
+console.log(displayFlights(flights));
 
 const weekDays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
