@@ -95,3 +95,21 @@ const high5 = function () {
 document.body.addEventListener('click', high5); // high5 ==> callback function
 
 ['Felipe', 'Marta', 'Adam'].forEach(high5);
+
+console.log('---------My callback functions---------');
+
+// function that take a salary and multiply by 12
+const yearSalary = function (salary) {
+  return salary * 12;
+};
+
+// function that calculates the taxes to pay yearly
+
+const yearlyTax = function (salary, fn) {
+  const income = fn(salary);
+  console.log(income / 5);
+};
+
+yearlyTax(6500, yearSalary);
+
+console.log('---------Function returning functions---------');
