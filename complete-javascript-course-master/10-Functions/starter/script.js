@@ -244,3 +244,22 @@ runOnce();
 }
 //console.log(isPrivate);
 console.log(notPrivate);
+
+console.log('---------CLOSURES---------');
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker); // to see the closure environment on the console.
