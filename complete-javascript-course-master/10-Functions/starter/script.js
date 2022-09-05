@@ -64,3 +64,34 @@ newPassport(felipe);
 checkIn(flight, felipe); // the passport is not the same so Wrong Passport
 
 // In JavaScript we never pass  by references only by values
+
+console.log('---------Functions accepting Callback Functions---------');
+
+const oneWord = function (str) {
+  return str.replaceAll(' ', '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+//HIGH-ORDER FUNCTION
+
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+
+  console.log(`Transformed by: ${fn.name}`);
+};
+
+transformer('JavaScript is the best!', upperFirstWord); // we are only passing the value of the function, we don't call the function
+transformer('JavaScript is the best!', oneWord); // we are only passing the value of the function, we don't call the function
+
+// JS uses callbacks all the time
+const high5 = function () {
+  console.log('🤟');
+};
+document.body.addEventListener('click', high5); // high5 ==> callback function
+
+['Felipe', 'Marta', 'Adam'].forEach(high5);
