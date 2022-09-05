@@ -129,3 +129,55 @@ greet('Hello')('Felipe Barcon');
 const greet2 = greeting => name => console.log(`${greeting} ${name}`);
 
 greet2('Salut')('Felipe');
+
+console.log('---------The call and apply Methods---------');
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(239, 'Felipe Barcon');
+lufthansa.book(635, 'John Smith');
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+// Does not work
+//book(23, 'Williams');
+
+// Call Method
+book.call(eurowings, 23, 'Sarah Williams');
+console.log(eurowings);
+
+book.call(lufthansa, 685, 'Melina Mourot');
+console.log(lufthansa);
+
+const swiss = {
+  airline: 'Swiss Air Line',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 854, 'Theo Mourot');
+console.log(swiss);
+
+// Apply Method ==> Take an array as second argument != Not use in modern JavaScript
+const flightData = [583, 'John Doe'];
+book.apply(swiss, flightData);
+
+book.call(swiss, ...flightData); // same as the apply but with spread operator
+
+console.log('---------The Bind Method---------');
