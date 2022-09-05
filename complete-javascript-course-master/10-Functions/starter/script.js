@@ -113,3 +113,19 @@ const yearlyTax = function (salary, fn) {
 yearlyTax(6500, yearSalary);
 
 console.log('---------Function returning functions---------');
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('Felipe');
+
+greet('Hello')('Felipe Barcon');
+
+// Challenge same greet function but in arrow function
+const greet2 = greeting => name => console.log(`${greeting} ${name}`);
+
+greet2('Salut')('Felipe');
