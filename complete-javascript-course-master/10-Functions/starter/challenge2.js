@@ -13,4 +13,10 @@ GOOD LUCK 😀
 (function () {
   const header = document.querySelector('h1');
   header.style.color = 'red';
+  console.log('First');
+
+  document.querySelector('body').addEventListener('click', function () {
+    console.log('second');
+    header.style.color = 'blue';
+  });
 })();
