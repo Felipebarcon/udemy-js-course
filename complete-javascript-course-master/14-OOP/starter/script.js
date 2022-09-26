@@ -1,5 +1,6 @@
 'use strict';
 
+///////////////////////////////////////////
 // Constructor Function
 const Person = function (firstName, birthYear) {
   // Instance properties
@@ -26,3 +27,23 @@ console.log(felipe instanceof Person);
 const matilda = new Person('Matilda', 1992);
 const jack = new Person('Jack', 1975);
 console.log(matilda, jack);
+
+///////////////////////////////////////////
+// Prototypes
+console.log(Person.prototype);
+
+Person.prototype.calcAge = function () {
+  console.log(2022 - this.birthYear);
+};
+
+felipe.calcAge();
+
+console.log(felipe.__proto__);
+console.log(felipe.__proto__ === Person.prototype);
+
+console.log(Person.prototype.isPrototypeOf(felipe));
+
+Person.prototype.species = 'Homo Sapiens';
+console.log(felipe);
+console.log(felipe.hasOwnProperty('firstName'));
+console.log(felipe.hasOwnProperty('species'));
