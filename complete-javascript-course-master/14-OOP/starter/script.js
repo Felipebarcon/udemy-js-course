@@ -1,5 +1,4 @@
 'use strict';
-/*
 ///////////////////////////////////////////
 // Constructor Function
 const Person = function (firstName, birthYear) {
@@ -11,12 +10,18 @@ const Person = function (firstName, birthYear) {
   this.calcAge = function () {
     console.log(2022 - this.birthYear);
   };
-
 };
 
 const felipe = new Person('Felipe', 1983); // => instance of Person
 console.log(felipe);
 console.log(felipe instanceof Person);
+
+Person.hey = function () {
+  console.log('Hey there 🤟');
+  console.log(this);
+};
+
+Person.hey();
 
 // 1. New empty object is created {}
 // 2. function is called, this = new empty object {}
@@ -71,7 +76,6 @@ const h1 = document.querySelector('h1');
 console.dir(h1);
 
 console.dir(x => x + 1);
-*/
 
 ///////////////////////////////////////////
 // ES6 CLASSES
@@ -86,6 +90,7 @@ class PersonCl {
     this.birthYear = birthYear;
   }
 
+  // Instance methods
   // Methods will be added to .prototype property
   calcAge() {
     console.log(2037 - this.birthYear);
@@ -108,6 +113,12 @@ class PersonCl {
   get fullName() {
     return this._fullName;
   }
+
+  // Static method
+  static hey() {
+    console.log('Hey there 🤟');
+    console.log(this);
+  }
 }
 
 const jessica = new PersonCl('Jessica Davis', 1996);
@@ -126,7 +137,7 @@ jessica.greet();
 ///////////////////////////////////////////
 // GETTERS AND SETTERS
 
-const walter = new PersonCl('Walter', 1965);
+// const walter = new PersonCl('Walter', 1965);
 
 const account = {
   owner: 'Felipe',
@@ -145,3 +156,10 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
+
+///////////////////////////////////////////
+// STATIC METHODS
+
+// Array.from(document.querySelectorAll('h1'));
+
+PersonCl.hey();
