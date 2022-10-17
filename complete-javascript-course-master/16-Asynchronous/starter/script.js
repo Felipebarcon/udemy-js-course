@@ -5,30 +5,38 @@ const countriesContainer = document.querySelector('.countries');
 
 const renderCountry = function (data, className = '') {
   const html = ` 
-        <article class="country ${className}">
-          <img class="country__img" src="${data.flags.png}" />
-          <div class="country__data">
-            <h3 class="country__name">${data.name.common}</h3>
-            <h4 class="country__region">${data.region}</h4>
-            <p class="country__row"><span>👫</span>${(
+        <article class='country ${className}'>
+          <img class='country__img' src='${data.flags.png}' />
+          <div class='country__data'>
+            <h3 class='country__name'>${data.name.common}</h3>
+            <h4 class='country__region'>${data.region}</h4>
+            <p class='country__row'><span>👫</span>${(
               +data.population / 1000000
             ).toFixed(1)}M people</p>
-            <p class="country__row"><span>🗣️</span>${
+            <p class='country__row'><span>🗣️</span>${
               Object.values(data.languages)[0]
             }</p>
-            <p class="country__row"><span>💰</span>${
+            <p class='country__row'><span>💰</span>${
               Object.keys(data.currencies)[0]
             }</p>
           </div>
         </article>`;
 
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  // countriesContainer.style.opacity = 1;
+  countriesContainer.style.opacity = 1;
 };
 
 const renderError = function (msg) {
   countriesContainer.insertAdjacentText('beforeend', msg);
-  // countriesContainer.style.opacity = 1;
+  countriesContainer.style.opacity = 1;
+};
+
+const getJSON = function (url, errorMsg = 'Something went wrong') {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
+
+    return response.json();
+  });
 };
 
 ///////////////////////////////////////
@@ -117,14 +125,6 @@ const getCountryData = function (country) {
 };
 */
 
-const getJSON = function (url, errorMsg = 'Something went wrong') {
-  return fetch(url).then(response => {
-    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
-
-    return response.json();
-  });
-};
-
 // const getCountryData = function (country) {
 //   // Country 1
 //   fetch(`https://restcountries.com/v3.1/name/${country}`)
@@ -192,4 +192,13 @@ btn.addEventListener('click', function () {
   getCountryData('switzerland');
 });
 
-getCountryData('australia');
+console.log('Test Start'); // 1
+setTimeout(() => console.log('O sec timer'), 0); // 4
+Promise.resolve('Resolved promise 1').then(res => console.log(res)); // 3
+// Micro Task queue will be executed first
+
+Promise.resolve('Resolved promise 2').then(res => {
+  for (let i = 0; i < 1000; i++) {}
+  console.log(res);
+});
+console.log('Test end'); // 2
