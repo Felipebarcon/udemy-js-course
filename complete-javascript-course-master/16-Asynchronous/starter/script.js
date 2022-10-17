@@ -192,6 +192,8 @@ btn.addEventListener('click', function () {
   getCountryData('switzerland');
 });
 
+/*
+
 console.log('Test Start'); // 1
 setTimeout(() => console.log('O sec timer'), 0); // 4
 Promise.resolve('Resolved promise 1').then(res => console.log(res)); // 3
@@ -202,3 +204,53 @@ Promise.resolve('Resolved promise 2').then(res => {
   console.log(res);
 });
 console.log('Test end'); // 2
+
+*/
+
+// BUILDING PROMISES
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log('Lottery draw is happening ⏳');
+  setTimeout(function () {
+    if (Math.random() > 0.5) {
+      resolve('You WIN 💰');
+    } else {
+      reject(new Error('You LOST your money 💩'));
+    }
+  }, 2000);
+});
+
+lotteryPromise.then(res => console.log(res)).catch(err => console.log(err));
+
+// Promisifying setTimeout
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+wait(1)
+  .then(() => {
+    console.log('1 second passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('2 seconds passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('3 seconds passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('4 seconds passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('5 seconds passed');
+    return wait(1);
+  })
+  .then(() => console.log('6 seconds passed'));
+
+Promise.resolve('abc').then(x => console.log(x));
+Promise.reject(new Error('Problem!')).catch(x => console.error(x));
