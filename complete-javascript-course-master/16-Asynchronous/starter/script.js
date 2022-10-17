@@ -206,7 +206,7 @@ Promise.resolve('Resolved promise 2').then(res => {
 console.log('Test end'); // 2
 
 */
-
+/*
 // BUILDING PROMISES
 
 const lotteryPromise = new Promise(function (resolve, reject) {
@@ -254,3 +254,16 @@ wait(1)
 
 Promise.resolve('abc').then(x => console.log(x));
 Promise.reject(new Error('Problem!')).catch(x => console.error(x));
+*/
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    // navigator.geolocation.getCurrentPosition(
+    //   position => resolve(position),
+    //   err => reject(err)
+    // );
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+getPosition().then(pos => console.log(pos));
